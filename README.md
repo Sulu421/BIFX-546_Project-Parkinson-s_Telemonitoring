@@ -51,6 +51,21 @@ Tsanas, A., Little, M.A., McSharry, P.E., & Ramig, L.O. (2010). *Accurate telemo
 
 > The dataset contains 5,875 voice recordings from 42 subjects, with 16 voice features plus demographics and clinician-rated motor and total UPDRS scores.
 
+## ✅ Packages Required
+
+**pandas** for loading and cleaning the data.
+
+**numpy** for numerical work.
+
+**matplotlib** and **seaborn** for EDA plots.
+
+**scikit-learn** for scaling, splitting, and modeling.
+
+**ucimlrepo** to download the UCI dataset directly with **fetch_ucirepo(id=189)**.
+
+**jupyter** to run the notebook smoothly.
+
+
 ## ⚙ How to Run Your Code
 
 ### 1. Clone the repository
