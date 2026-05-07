@@ -37,7 +37,7 @@ From the course, I am applying:
 - **Visualization:**
   Visualization with matplotlib and seaborn
 - **Modelling:**
-   Regression modeling with scikit-learn
+   Linear, Ridge, Lasso Regression, Random Forest, SVM, MLP, Gradient boosting modeling with scikit-learn
    Model evaluation using RMSE, MAE, and R²
 
 ## 📊 Dataset Source
@@ -53,17 +53,23 @@ Tsanas, A., Little, M.A., McSharry, P.E., & Ramig, L.O. (2010). *Accurate telemo
 
 ## ✅ Packages Required
 
-**pandas** for loading and cleaning the data.
-
-**numpy** for numerical work.
-
-**matplotlib** and **seaborn** for EDA plots.
-
-**scikit-learn** for scaling, splitting, and modeling.
-
-**ucimlrepo** to download the UCI dataset directly with **fetch_ucirepo(id=189)**.
-
-**jupyter** to run the notebook smoothly.
+- pandas
+- numpy
+- matplotlib.pyplot
+- matplotlib.gridspec
+- seaborn 
+- os
+- sklearn.model_selection for train_test_split
+- sklearn.model_selection for GroupShuffleSplit
+- sklearn.linear_model for LinearRegression, Ridge, Lasso
+- sklearn.ensemble for RandomForestRegressor
+- sklearn.preprocessing for StandardScaler
+- sklearn.metrics for mean_absolute_error, mean_squared_error, r2_score
+- sklearn.ensemble for GradientBoostingRegressor
+- sklearn.neural_network for MLPRegressor
+- sklearn.decomposition for PCA
+- ucimlrepo to download the UCI dataset 
+- jupyter to run the notebook smoothly.
 
 
 ## ⚙ How to Run Your Code
@@ -96,12 +102,12 @@ X = parkinsons_telemonitoring.data.features
 y = parkinsons_telemonitoring.data.targets
 df = pd.concat([X, y], axis=1)
 ```
-## 📝 Summary of Findings
+## Exploratory Data Analysis
 
 In the preliminary EDA, I confirmed that the Parkinsons Telemonitoring dataset is clean and well-structured: there are no missing values or duplicate rows, and each of the 5,875 recordings is linked to one of 42 patients followed over roughly six months. Motor and total UPDRS scores show a reasonable spread (motor_UPDRS mean around low 20s), indicating a mix of mild to moderate symptom severity rather than a very narrow range. Basic plots show that motor_UPDRS is slightly right-skewed, and many patients’ scores gradually increase over time, which matches the expected progression of Parkinson’s disease.
 
 Correlation analysis suggests that several voice features (especially measures like jitter, shimmer, PPE, and noise-related metrics) have moderate relationships with UPDRS scores, while others are weakly related. There is strong correlation between motor_UPDRS and total_UPDRS, and also noticeable multicollinearity among the voice features themselves (e.g., different jitter and shimmer variants). This indicates that voice-based prediction of disease severity is plausible, but models will need to handle correlated inputs carefully, likely using regularization or feature selection. Future steps in the project will focus on building and comparing regression models (linear, regularized, and tree-based) to quantify how accurately UPDRS can be predicted from voice alone.
-## Exploratory Data Analysis
+
 
 ### Key Findings:
 
@@ -221,11 +227,7 @@ Correlation analysis suggests that several voice features (especially measures l
 ## Technical Implementation
 
 ### Tools & Libraries:
-- **Python**: Core programming language
-- **scikit-learn**: Machine learning algorithms
-- **pandas/numpy**: Data manipulation
-- **matplotlib/seaborn**: Visualization
-- **Jupyter Notebook**: Development environment
+
 
 ### Reproducibility:
 - **Version control**: GitHub repository
