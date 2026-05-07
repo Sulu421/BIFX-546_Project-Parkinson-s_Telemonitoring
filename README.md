@@ -125,7 +125,7 @@ Correlation analysis suggests that several voice features (especially measures l
 ### Data Preprocessing:
 1. **Patient-level splitting**: GroupShuffleSplit to prevent data leakage
 2. **Feature scaling**: StandardScaler (zero mean, unit variance)
-3. **Train/Test split**: ~75/25 with no patient overlap
+3. **Train/Test split**: ~80/20 with no patient overlap
 
 ### Models Evaluated:
 - Linear Regression (baseline)
